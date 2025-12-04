@@ -7,7 +7,7 @@ from sklearn.cross_decomposition import PLSRegression
 
 def entrenar_pls(df):
     # Columnas categóricas y numéricas
-    cat_cols = ['IdProducto','IdMarca','IdPresentacion','IdCliente']
+    cat_cols = ['IdProducto','IdMarca','IdPresentacion']
     num_cols = ['VM','PM3','T','Me','A']
 
     X = df[cat_cols + num_cols]
@@ -22,7 +22,7 @@ def entrenar_pls(df):
     # Pipeline con preprocesamiento + PLS
     pls_pipeline = Pipeline([
         ('preprocessor', preprocessor),
-        ('pls', PLSRegression(n_components=2))
+        ('pls', PLSRegression(n_components=3))
     ])
 
     # Entrenar
